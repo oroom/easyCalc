@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -14,22 +14,21 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Calculator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2LX-dH-F3a">
-                                <rect key="frame" x="0.0" y="48" width="375" height="21"/>
+                                <rect key="frame" x="0.0" y="48" width="320" height="21"/>
                                 <color key="backgroundColor" red="0.96583549222797926" green="0.96583549222797926" blue="0.96583549222797926" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8lz-dz-uUD">
-                                <rect key="frame" x="37" y="109" width="44" height="44"/>
+                                <rect key="frame" x="37" y="109" width="30" height="44"/>
                                 <color key="backgroundColor" red="0.96933694948186533" green="0.96933694948186533" blue="0.96933694948186533" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="ahE-ga-h2s"/>
-                                    <constraint firstAttribute="width" constant="44" id="xeE-Zm-ZOC"/>
                                 </constraints>
                                 <state key="normal" title="1">
                                     <color key="titleColor" red="0.062745101750000004" green="0.0" blue="0.1921568662" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -39,11 +38,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vSD-RC-DE4">
-                                <rect key="frame" x="102" y="109" width="44" height="44"/>
+                                <rect key="frame" x="88" y="109" width="30" height="44"/>
                                 <color key="backgroundColor" red="0.96933694950000004" green="0.96933694950000004" blue="0.96933694950000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="Rl2-oK-vFM"/>
-                                    <constraint firstAttribute="width" constant="44" id="oBd-Ti-eAc"/>
                                 </constraints>
                                 <state key="normal" title="2">
                                     <color key="titleColor" red="0.062745101750000004" green="0.0" blue="0.1921568662" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -56,13 +54,13 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="2LX-dH-F3a" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="0EA-DG-kcA"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="vSD-RC-DE4" secondAttribute="trailing" constant="20" symbolic="YES" id="Bgz-yu-vtq"/>
                             <constraint firstItem="2LX-dH-F3a" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Lep-Vy-3dT"/>
                             <constraint firstItem="vSD-RC-DE4" firstAttribute="top" secondItem="2LX-dH-F3a" secondAttribute="bottom" constant="40" id="Ncr-sz-y8J"/>
                             <constraint firstItem="vSD-RC-DE4" firstAttribute="leading" secondItem="8lz-dz-uUD" secondAttribute="trailing" constant="21" id="RLz-Fm-dLn"/>
                             <constraint firstItem="8lz-dz-uUD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="37" id="dc1-mL-CGh"/>
                             <constraint firstItem="8lz-dz-uUD" firstAttribute="top" secondItem="2LX-dH-F3a" secondAttribute="bottom" constant="40" id="oCH-sL-ES6"/>
                             <constraint firstItem="2LX-dH-F3a" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="28" id="pPg-v7-QDi"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="2LX-dH-F3a" secondAttribute="trailing" id="wJg-Lo-IkQ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
