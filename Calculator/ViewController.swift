@@ -11,6 +11,7 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var resultArea: UILabel!
+    var calc = Calcucator()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +27,7 @@ class ViewController: UIViewController {
         case plus
         case minus
         case multiply
+        case divide
     }
     
     class Calcucator {
@@ -41,6 +43,8 @@ class ViewController: UIViewController {
                 minus(inputValue, nextNumber)
             case .multiply:
                 multiply(inputValue, nextNumber)
+            case .divide:
+                divide(inputValue, nextNumber)
             default:
                 fatalError("Something gone wrong with nextOpetation")
             }
@@ -61,11 +65,14 @@ class ViewController: UIViewController {
             result = firstNumber * secondNumber
             return result!
         }
+        func divide(_ firstNumber: Int, _ secondNumber: Int) -> Int {
+            result = firstNumber / secondNumber
+            return result!
+        }
     }
 
     @IBAction func operationButtonTapped(_ sender: Any) {
         let button = sender as! UIButton
-        let calc = Calcucator()
         let numberForInput = Int(resultArea.text!)
         calc.inputValue = numberForInput!
         switch button.titleLabel!.text! {
@@ -75,18 +82,23 @@ class ViewController: UIViewController {
             calc.nextOperation = .minus
         case "x":
             calc.nextOperation = .multiply
+        case "/":
+            calc.nextOperation = .divide
         default:
             fatalError("Something gone wrong with =")
         }
-        resultArea.text = ""
+        resultArea.text = "0"
     }
     
     @IBAction func resultButtonTapped(_ sender: Any) {
-        let calc = Calcucator()
         let numberForNext = Int(resultArea.text!)
         calc.nextNumber(numberForNext!)
         resultArea.text = String(calc.result!)
-        calc.nextOperation = nil
+        //calc.nextOperation = nil
+    }
+    
+    @IBAction func eraseButtonTapped(_ sender: Any) {
+        resultArea.text = "0"
     }
     
     
