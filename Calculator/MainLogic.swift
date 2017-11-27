@@ -19,7 +19,7 @@ enum CaclutorOperation {
 class Calculator {
     
     var result: Double?
-        var inputValue: Double = 0
+    var inputValue: Double = 0
     var nextOperation: CaclutorOperation?
     
     func add(_ first: Double ,_ second: Double)->Double{
@@ -43,7 +43,12 @@ class Calculator {
         return result!
     }
     func divisions (_ first: Double,_ second: Double) ->Double{
-        result = first/second
+        if second != 0 {
+            result = first/second
+        }
+        else {
+            print("Error")
+        }
         return result!
     }
     func plusesMinus (_ first: Double) ->Double{

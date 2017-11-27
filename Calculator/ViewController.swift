@@ -42,16 +42,16 @@ class ViewController: UIViewController {
             cal.nextOperation = .plus
         case "-"?:
             cal.nextOperation = .minus
-        case "x^2"?:
-            cal.nextOperation = .doublle
-        case "sqrt"?:
-            cal.nextOperation = .sqrt
+//        case "x^2"?:
+//            cal.nextOperation = .doublle
+//        case "sqrt"?:
+//            cal.nextOperation = .sqrt
         case "*"?:
             cal.nextOperation = .multiplie
         case "/"?:
             cal.nextOperation = .division
-        case "+-"?:
-            cal.nextOperation = .plusMinus
+//        case "+-"?:
+//            cal.nextOperation = .plusMinus
         default :
             fatalError()
         }
@@ -67,6 +67,23 @@ class ViewController: UIViewController {
         resultArea.text = "0"
     }
 
+    @IBAction func operationSqrtButtonTapped(_ sender: Any) {
+        let button = sender as! UIButton
+        let numberForNext = Double(resultArea.text!)
+        let buttonForInput = Double(resultArea.text!)
+        cal.inputValue = buttonForInput!
+        switch button.titleLabel?.text!{
+        case "x^2"?:
+            cal.nextOperation = .doublle
+        case "sqrt"?:
+            cal.nextOperation = .sqrt
+        case "+-"?:
+            cal.nextOperation = .plusMinus
+        default :
+            fatalError()
+        }
+        cal.nextNumber(numberForNext!)
+        resultArea.text = String(cal.result!)
     }
-
+}
 

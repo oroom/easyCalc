@@ -203,7 +203,7 @@
                                     <color key="titleColor" red="0.062745101750000004" green="0.0" blue="0.1921568662" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="operationButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="h18-md-x2v"/>
+                                    <action selector="operationSqrtButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1QR-9Q-MCf"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8vG-5k-8fP">
@@ -217,7 +217,7 @@
                                     <color key="titleColor" red="0.062745101750000004" green="0.0" blue="0.1921568662" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="operationButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zdm-5R-zPX"/>
+                                    <action selector="operationSqrtButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Lcs-fo-Oyo"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vgF-LO-L3k">
@@ -287,7 +287,7 @@
                                     <color key="titleColor" red="0.062745101750000004" green="0.0" blue="0.1921568662" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="operationButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lTZ-DE-mPq"/>
+                                    <action selector="operationSqrtButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6eb-Rp-Z04"/>
                                 </connections>
                             </button>
                         </subviews>
