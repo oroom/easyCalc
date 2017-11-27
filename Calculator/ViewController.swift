@@ -9,9 +9,10 @@
 import UIKit
 
 class ViewController: UIViewController {
-
-    @IBOutlet weak var resultArea: UILabel!
     var calc = Calcucator()
+    
+    @IBOutlet weak var resultArea: UILabel!
+    //var calc = Calcucator()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,54 +22,6 @@ class ViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    enum CalculatorOperation {
-        case plus
-        case minus
-        case multiply
-        case divide
-    }
-    
-    class Calcucator {
-        var result: Int?
-        var inputValue: Int = 0
-        var nextOperation: CalculatorOperation?
-        
-        func nextNumber(_ nextNumber: Int) -> Int {
-            switch nextOperation! {
-            case .plus:
-                plus(inputValue, nextNumber)
-            case .minus:
-                minus(inputValue, nextNumber)
-            case .multiply:
-                multiply(inputValue, nextNumber)
-            case .divide:
-                divide(inputValue, nextNumber)
-            default:
-                fatalError("Something gone wrong with nextOpetation")
-            }
-//            nextOperation = nil
-//            inputValue = result!
-            return result!
-        }
-        
-        func plus(_ firstNumber: Int, _ secondNumber: Int) -> Int {
-            result = firstNumber + secondNumber
-            return result!
-        }
-        func minus(_ firstNumber: Int, _ secondNumber: Int) -> Int {
-            result = firstNumber - secondNumber
-            return result!
-        }
-        func multiply(_ firstNumber: Int, _ secondNumber: Int) -> Int {
-            result = firstNumber * secondNumber
-            return result!
-        }
-        func divide(_ firstNumber: Int, _ secondNumber: Int) -> Int {
-            result = firstNumber / secondNumber
-            return result!
-        }
     }
 
     @IBAction func operationButtonTapped(_ sender: Any) {
@@ -103,16 +56,19 @@ class ViewController: UIViewController {
     
     
     @IBAction func didgitButtonTapped(_ sender: Any) {
-        let button = sender as! UIButton
-        let buttonText = button.titleLabel!.text!
-        //let calc = Calcucator()
-        if resultArea.text! == "0" {
-            resultArea.text! = buttonText
-        }
-        else {
-            resultArea.text! += buttonText
+        guard let button = sender as? UIButton else {
+            return
         }
         
-    }
+        if let buttonText = button.titleLabel?.text, var resultText = resultArea?.text {
+        //let calc = Calcucator()
+            if resultText == "0" {
+            resultText = buttonText
+            }
+            else {
+                resultText += buttonText
+            }
+            resultArea.text = resultText
+      }  
 }
-
+}
