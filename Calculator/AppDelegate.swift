@@ -2,8 +2,8 @@
 //  AppDelegate.swift
 //  Calculator
 //
-//  Created by oroom on 11/24/17.
-//  Copyright © 2017 Dzmitry Novak. All rights reserved.
+//  Created by Arthur Obukhovich on 24.11.17.
+//  Copyright © 2017 Артур Обухович. All rights reserved.
 //
 
 import UIKit
