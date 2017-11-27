@@ -9,7 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    var cal = Calculator()
     @IBOutlet weak var resultArea: UILabel!
     
     override func viewDidLoad() {
@@ -31,6 +31,42 @@ class ViewController: UIViewController {
         else {
             resultArea.text! += buttonText
         }
+        
     }
-}
+    @IBAction func operationButtonTapped(_ sender: Any) {
+        let button = sender as! UIButton
+        let buttonForInput = Double(resultArea.text!)
+        cal.inputValue = buttonForInput!
+        switch button.titleLabel?.text!{
+        case "+"?:
+            cal.nextOperation = .plus
+        case "-"?:
+            cal.nextOperation = .minus
+        case "x^2"?:
+            cal.nextOperation = .doublle
+        case "sqrt"?:
+            cal.nextOperation = .sqrt
+        case "*"?:
+            cal.nextOperation = .multiplie
+        case "/"?:
+            cal.nextOperation = .division
+        case "+-"?:
+            cal.nextOperation = .plusMinus
+        default :
+            fatalError()
+        }
+        resultArea.text = "0"
+    }
+    @IBAction func resultButtonTapped(_ sender: Any) {
+        let numberForNext = Double(resultArea.text!)
+        cal.nextNumber(numberForNext!)
+        resultArea.text = String(cal.result!)
+        
+    }
+    @IBAction func eraseButtonTapped(_ sender: Any) {
+        resultArea.text = "0"
+    }
+
+    }
+
 
