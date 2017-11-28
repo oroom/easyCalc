@@ -25,9 +25,11 @@ class ViewController: UIViewController {
     }
 
     @IBAction func operationButtonTapped(_ sender: Any) {
-        let button = sender as! UIButton
-        let numberForInput = Int(resultArea.text!)
-        calc.inputValue = numberForInput!
+        guard let button = sender as? UIButton else {
+            return
+        }
+        
+        calc.inputValue = Int(resultArea.text!)!
         switch button.titleLabel!.text! {
         case "+":
             calc.nextOperation = .plus
@@ -36,7 +38,7 @@ class ViewController: UIViewController {
         case "x":
             calc.nextOperation = .multiply
         case "/":
-            calc.nextOperation = .divide
+                calc.nextOperation = .divide
         default:
             fatalError("Something gone wrong with =")
         }
@@ -44,10 +46,20 @@ class ViewController: UIViewController {
     }
     
     @IBAction func resultButtonTapped(_ sender: Any) {
-        let numberForNext = Int(resultArea.text!)
-        calc.nextNumber(numberForNext!)
-        resultArea.text = String(calc.result!)
-        //calc.nextOperation = nil
+        if let number = resultArea?.text, let numberForNext = Int(number) {
+            calc.nextNumber(numberForNext)
+            if calc.nextOperation == CalculatorOperation.divide && numberForNext == 0 {
+                resultArea.text = "Error"
+            }
+            else {
+                resultArea.text = String(calc.result!)
+                calc.nextOperation = nil
+            }
+        }
+//        let numberForNext = Int(resultArea.text!)
+//        calc.nextNumber(numberForNext!)
+//        resultArea.text = String(calc.result!)
+//        calc.nextOperation = nil
     }
     
     @IBAction func eraseButtonTapped(_ sender: Any) {
@@ -61,7 +73,6 @@ class ViewController: UIViewController {
         }
         
         if let buttonText = button.titleLabel?.text, var resultText = resultArea?.text {
-        //let calc = Calcucator()
             if resultText == "0" {
             resultText = buttonText
             }
@@ -70,5 +81,5 @@ class ViewController: UIViewController {
             }
             resultArea.text = resultText
       }  
-}
+    }
 }

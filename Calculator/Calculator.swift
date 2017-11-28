@@ -50,8 +50,13 @@ class Calcucator {
         result = firstNumber * secondNumber
         return result!
     }
-    func divide(_ firstNumber: Int, _ secondNumber: Int) -> Int {
-        result = firstNumber / secondNumber
+    func divide(_ firstNumber: Int, _ secondNumber: Int) -> Int? {
+        if secondNumber != 0 {
+            result = firstNumber / secondNumber
+        }
+        else {
+            result = 0
+        }
         return result!
     }
 }
