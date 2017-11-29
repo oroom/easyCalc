@@ -30,11 +30,7 @@ class Calcucator {
             multiply(inputValue, nextNumber)
         case .divide:
             divide(inputValue, nextNumber)
-//        default:
-//            fatalError("Something gone wrong with nextOpetation")
         }
-        //            nextOperation = nil
-        //            inputValue = result!
         return result!
     }
     
@@ -50,7 +46,7 @@ class Calcucator {
         result = firstNumber * secondNumber
         return result!
     }
-    func divide(_ firstNumber: Int, _ secondNumber: Int) -> Int? {
+    func divide(_ firstNumber: Int, _ secondNumber: Int) -> Int {
         if secondNumber != 0 {
             result = firstNumber / secondNumber
         }

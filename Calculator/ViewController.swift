@@ -12,7 +12,6 @@ class ViewController: UIViewController {
     var calc = Calcucator()
     
     @IBOutlet weak var resultArea: UILabel!
-    //var calc = Calcucator()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,10 +55,6 @@ class ViewController: UIViewController {
                 calc.nextOperation = nil
             }
         }
-//        let numberForNext = Int(resultArea.text!)
-//        calc.nextNumber(numberForNext!)
-//        resultArea.text = String(calc.result!)
-//        calc.nextOperation = nil
     }
     
     @IBAction func eraseButtonTapped(_ sender: Any) {
