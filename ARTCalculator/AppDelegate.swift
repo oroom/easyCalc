@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  Calculator
+//  ARTCalculator
 //
-//  Created by Arthur Obukhovich on 24.11.17.
+//  Created by Arthur Obukhovich on 11/29/17.
 //  Copyright © 2017 Артур Обухович. All rights reserved.
 //
 
