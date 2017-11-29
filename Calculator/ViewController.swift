@@ -23,7 +23,9 @@ class ViewController: UIViewController {
     }
 
     @IBAction func didgitButtonTapped(_ sender: Any) {
-        let button = sender as! UIButton
+        guard let button = sender as? UIButton else{
+            return
+        }
         let buttonText = button.titleLabel!.text!
         if resultArea.text! == "0" {
             resultArea.text! = buttonText
@@ -37,18 +39,18 @@ class ViewController: UIViewController {
         let button = sender as! UIButton
         let buttonForInput = Double(resultArea.text!)
         cal.inputValue = buttonForInput!
-        switch button.titleLabel?.text!{
-        case "+"?:
+        switch button.titleLabel!.text!{
+        case "+":
             cal.nextOperation = .plus
-        case "-"?:
+        case "-":
             cal.nextOperation = .minus
 //        case "x^2"?:
 //            cal.nextOperation = .doublle
 //        case "sqrt"?:
 //            cal.nextOperation = .sqrt
-        case "*"?:
+        case "*":
             cal.nextOperation = .multiplie
-        case "/"?:
+        case "/":
             cal.nextOperation = .division
 //        case "+-"?:
 //            cal.nextOperation = .plusMinus
@@ -58,8 +60,10 @@ class ViewController: UIViewController {
         resultArea.text = "0"
     }
     @IBAction func resultButtonTapped(_ sender: Any) {
-        let numberForNext = Double(resultArea.text!)
-        cal.nextNumber(numberForNext!)
+        guard let numberForNext = Double(resultArea.text!) else {
+            return
+        }
+        cal.nextNumber(numberForNext)
         resultArea.text = String(cal.result!)
         
     }
@@ -72,12 +76,12 @@ class ViewController: UIViewController {
         let numberForNext = Double(resultArea.text!)
         let buttonForInput = Double(resultArea.text!)
         cal.inputValue = buttonForInput!
-        switch button.titleLabel?.text!{
-        case "x^2"?:
+        switch button.titleLabel!.text!{
+        case "x^2":
             cal.nextOperation = .doublle
-        case "sqrt"?:
+        case "sqrt":
             cal.nextOperation = .sqrt
-        case "+-"?:
+        case "+-":
             cal.nextOperation = .plusMinus
         default :
             fatalError()
