@@ -21,17 +21,22 @@ class Calcucator {
     var nextOperation: CalculatorOperation?
     
     func nextNumber(_ nextNumber: Double) -> Double {
-        switch nextOperation! {
-        case .plus:
-            plus(inputValue, nextNumber)
-        case .minus:
-            minus(inputValue, nextNumber)
-        case .multiply:
-            multiply(inputValue, nextNumber)
-        case .divide:
-            divide(inputValue, nextNumber)
+        if let nextOperation = nextOperation {
+            switch nextOperation {
+            case .plus:
+                plus(inputValue, nextNumber)
+            case .minus:
+                minus(inputValue, nextNumber)
+            case .multiply:
+                multiply(inputValue, nextNumber)
+            case .divide:
+                divide(inputValue, nextNumber)
+            }
+            return result!
         }
-        return result!
+        else {
+            return inputValue
+            }
     }
     
     func plus(_ firstNumber: Double, _ secondNumber: Double) -> Double {
