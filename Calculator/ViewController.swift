@@ -69,6 +69,7 @@ class ViewController: UIViewController {
     }
     @IBAction func eraseButtonTapped(_ sender: Any) {
         resultArea.text = "0"
+        
     }
 
     @IBAction func operationSqrtButtonTapped(_ sender: Any) {
