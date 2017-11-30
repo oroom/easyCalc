@@ -28,7 +28,7 @@ class ViewController: UIViewController {
             return
         }
         
-        calc.inputValue = Int(resultArea.text!)!
+        calc.inputValue = Double(resultArea.text!)!
         switch button.titleLabel!.text! {
         case "+":
             calc.nextOperation = .plus
@@ -45,7 +45,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func resultButtonTapped(_ sender: Any) {
-        if let number = resultArea?.text, let numberForNext = Int(number) {
+        if let number = resultArea?.text, let numberForNext = Double(number) {
             calc.nextNumber(numberForNext)
             if calc.nextOperation == CalculatorOperation.divide && numberForNext == 0 {
                 resultArea.text = "Error"

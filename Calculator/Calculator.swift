@@ -16,11 +16,11 @@ enum CalculatorOperation {
 }
 
 class Calcucator {
-    var result: Int?
-    var inputValue: Int = 0
+    var result: Double?
+    var inputValue: Double = 0
     var nextOperation: CalculatorOperation?
     
-    func nextNumber(_ nextNumber: Int) -> Int {
+    func nextNumber(_ nextNumber: Double) -> Double {
         switch nextOperation! {
         case .plus:
             plus(inputValue, nextNumber)
@@ -34,19 +34,19 @@ class Calcucator {
         return result!
     }
     
-    func plus(_ firstNumber: Int, _ secondNumber: Int) -> Int {
+    func plus(_ firstNumber: Double, _ secondNumber: Double) -> Double {
         result = firstNumber + secondNumber
         return result!
     }
-    func minus(_ firstNumber: Int, _ secondNumber: Int) -> Int {
+    func minus(_ firstNumber: Double, _ secondNumber: Double) -> Double {
         result = firstNumber - secondNumber
         return result!
     }
-    func multiply(_ firstNumber: Int, _ secondNumber: Int) -> Int {
+    func multiply(_ firstNumber: Double, _ secondNumber: Double) -> Double {
         result = firstNumber * secondNumber
         return result!
     }
-    func divide(_ firstNumber: Int, _ secondNumber: Int) -> Int {
+    func divide(_ firstNumber: Double, _ secondNumber: Double) -> Double {
         if secondNumber != 0 {
             result = firstNumber / secondNumber
         }
