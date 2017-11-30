@@ -31,17 +31,19 @@ class ViewController: UIViewController {
         
         if let input = resultArea?.text, let inputValue = Double(input) {
             calc.inputValue = inputValue
-            switch button.titleLabel!.text! {
-            case "+":
-                calc.nextOperation = .plus
-            case "-":
-                calc.nextOperation = .minus
-            case "x":
-                calc.nextOperation = .multiply
-            case "/":
-                calc.nextOperation = .divide
-            default:
-                ()
+            if let buttonOperation = button.titleLabel?.text {
+                switch buttonOperation {
+                case "+":
+                    calc.nextOperation = .plus
+                case "-":
+                    calc.nextOperation = .minus
+                case "x":
+                    calc.nextOperation = .multiply
+                case "/":
+                    calc.nextOperation = .divide
+                default:
+                    ()
+                }
             }
         }
         else {
