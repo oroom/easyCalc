@@ -5,8 +5,8 @@
 //  Created by Евгений Таран on 11/27/17.
 //  Copyright © 2017 Dzmitry Novak. All rights reserved.
 //
-import Foundation
 
+import Foundation
 enum CaclutorOperation {
     case plus
     case minus
@@ -47,8 +47,8 @@ class Calculator {
         if second != 0 {
             result = first/second
         }
-        else {
-            print("Error")
+        else  {
+            result = 0
         }
         return result!
     }
@@ -66,16 +66,12 @@ class Calculator {
         switch nextOperation!{
         case .plus:
             add(inputValue,nextNumber)
-            
         case .minus:
             substract(inputValue, nextNumber)
-            
         case .sqrt:
             sqrtOf2(inputValue)
-            
         case .doublle:
             doublled(inputValue)
-            
         case .multiplie:
             multiplies(inputValue, nextNumber)
         case .division:
@@ -87,4 +83,3 @@ class Calculator {
     }
     
 }
-
