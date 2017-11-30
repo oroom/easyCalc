@@ -58,8 +58,11 @@ class ViewController: UIViewController {
                 resultArea.text = "Error"
             }
             else {
-                resultArea.text = String(calc.result!)
-                calc.nextOperation = nil
+                if let resultOut = calc.result {
+                    resultArea.text = String(resultOut)
+                    calc.nextOperation = nil
+                }
+                
             }
         }
     }
