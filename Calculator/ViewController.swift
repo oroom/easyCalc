@@ -28,19 +28,26 @@ class ViewController: UIViewController {
             return
         }
         
-        calc.inputValue = Double(resultArea.text!)!
-        switch button.titleLabel!.text! {
-        case "+":
-            calc.nextOperation = .plus
-        case "-":
-            calc.nextOperation = .minus
-        case "x":
-            calc.nextOperation = .multiply
-        case "/":
+        
+        if let input = resultArea?.text, let inputValue = Double(input) {
+            calc.inputValue = inputValue
+            switch button.titleLabel!.text! {
+            case "+":
+                calc.nextOperation = .plus
+            case "-":
+                calc.nextOperation = .minus
+            case "x":
+                calc.nextOperation = .multiply
+            case "/":
                 calc.nextOperation = .divide
-        default:
+            default:
+                ()
+            }
+        }
+        else {
             ()
         }
+        
         resultArea.text = "0"
     }
     
