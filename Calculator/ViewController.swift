@@ -77,11 +77,11 @@ class ViewController: UIViewController {
         calc.inputValue = inputValueButton!
         let resultValueButton = Double(resultArea.text!)
         switch button.titleLabel!.text!{
-        case "+/-":
+        case "±":
             calc.nextOperation = .plusMinus
         case "√":
             calc.nextOperation = .sqrt
-        case "x^2":
+        case "x²":
             calc.nextOperation = .doublle
         default:
             resultArea.text = "Error"
