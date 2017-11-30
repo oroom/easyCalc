@@ -39,7 +39,7 @@ class ViewController: UIViewController {
         case "/":
                 calc.nextOperation = .divide
         default:
-            fatalError("Something gone wrong with =")
+            ()
         }
         resultArea.text = "0"
     }
