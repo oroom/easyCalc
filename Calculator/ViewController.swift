@@ -64,7 +64,6 @@ class ViewController: UIViewController {
                     resultArea.text = String(resultOut)
                     calc.nextOperation = nil
                 }
-                
             }
         }
     }
