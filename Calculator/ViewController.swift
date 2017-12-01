@@ -13,6 +13,9 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var resultArea: UILabel!
     
+    var operationTapped: Bool = false
+    var resultAgain: Double = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -27,35 +30,44 @@ class ViewController: UIViewController {
         guard let button = sender as? UIButton else {
             return
         }
-        
-        
-        if let input = resultArea?.text, let inputValue = Double(input) {
-            calc.inputValue = inputValue
-            if let buttonOperation = button.titleLabel?.text {
-                switch buttonOperation {
-                case "+":
-                    calc.nextOperation = .plus
-                case "-":
-                    calc.nextOperation = .minus
-                case "x":
-                    calc.nextOperation = .multiply
-                case "/":
-                    calc.nextOperation = .divide
-                default:
-                    ()
+        if operationTapped != true {
+            
+            if let input = resultArea?.text, let inputValue = Double(input) {
+                calc.inputValue = inputValue
+                if let buttonOperation = button.titleLabel?.text {
+                    switch buttonOperation {
+                    case "+":
+                        calc.nextOperation = .plus
+                    case "-":
+                        calc.nextOperation = .minus
+                    case "x":
+                        calc.nextOperation = .multiply
+                    case "/":
+                        calc.nextOperation = .divide
+                    default:
+                        ()
+                    }
+                    operationTapped = true
                 }
             }
+            else {
+                ()
+            }
+            resultArea.text = "0"
         }
         else {
-            ()
+            var numberforNext = Double(resultArea.text!)
+            calc.nextNumber(numberforNext!)
+            resultArea.text = String(calc.result!)
+            
         }
-        
-        resultArea.text = "0"
+
     }
     
     @IBAction func resultButtonTapped(_ sender: Any) {
         if let number = resultArea?.text, let numberForNext = Double(number) {
             calc.nextNumber(numberForNext)
+            operationTapped = false
             if calc.nextOperation == CalculatorOperation.divide && numberForNext == 0 {
                 resultArea.text = "Error"
             }
@@ -70,6 +82,7 @@ class ViewController: UIViewController {
     
     @IBAction func eraseButtonTapped(_ sender: Any) {
         resultArea.text = "0"
+        operationTapped = false
     }
     
     
