@@ -12,9 +12,10 @@ import UIKit
 class ViewController: UIViewController {
     var calc = Calculator()
     @IBOutlet weak var resultArea: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        // Do any additional setup after loading the view, typically from a nib
     }
     
     override func didReceiveMemoryWarning() {
@@ -41,7 +42,7 @@ class ViewController: UIViewController {
     
     @IBAction func resultButtonTapped(_ sender: Any) {
         if let resultNumber = Double(resultArea.text!) {
-            calc.nextNumber(resultNumber)
+        calc.nextNumber(resultNumber)
             if calc.nextOperation == CaclutorOperation.division && resultNumber == 0 {
                 resultArea.text = "Error"
             }
@@ -71,6 +72,10 @@ class ViewController: UIViewController {
         resultArea.text = "0"
     }
     
+    @IBAction func copyButton() {
+        UIPasteboard.general.string = resultArea.text
+    }
+    
     @IBAction func operationWithResultButtonTapped(_ sender: Any) {
         let button = sender as! UIButton
         let inputValueButton = Double(resultArea.text!)
@@ -83,13 +88,22 @@ class ViewController: UIViewController {
             calc.nextOperation = .sqrt
         case "x²":
             calc.nextOperation = .doublle
+        case "sin":
+            calc.nextOperation = .sinus
+        case "cos":
+            calc.nextOperation = .cosinus
+        case "tg":
+            calc.nextOperation = .tangens
+        case "log":
+            calc.nextOperation = .log
         default:
             resultArea.text = "Error"
         }
         calc.nextNumber(resultValueButton!)
         resultArea.text = String(calc.result!)
     }
-    
-    
 }
+    
+    
+
 
