@@ -15,6 +15,10 @@ enum CaclutorOperation {
     case multiplie
     case division
     case plusMinus
+    case sinus
+    case cosinus
+    case tangens
+    case log
 }
 
 class Calculator {
@@ -31,8 +35,24 @@ class Calculator {
         result = first - second
         return result!
     }
+    func log(_ first: Double) -> Double{
+        result = log2(first)
+        return result!
+    }
     func sqrtOf2(_ first: Double) -> Double{
         result = pow(first,(1/2))
+        return result!
+    }
+    func sinus(_ first: Double) -> Double{
+        result = sin(first * .pi / 180)
+        return result!
+    }
+    func tangens(_ first: Double) -> Double{
+        result = tan(first * .pi / 180)
+        return result!
+    }
+    func cosinus(_ first: Double) -> Double{
+        result = cos(first * .pi / 180)
         return result!
     }
     func doublled(_ first: Double) -> Double{
@@ -61,6 +81,8 @@ class Calculator {
             result = abs(first)
             return result!
         }
+        
+
     }
     func nextNumber(_ nextNumber: Double) -> Double{
         switch nextOperation!{
@@ -78,6 +100,14 @@ class Calculator {
             divisions(inputValue, nextNumber)
         case .plusMinus:
             plusesMinus(inputValue)
+        case .sinus:
+            sinus(inputValue)
+        case .cosinus:
+            cosinus(inputValue)
+        case .tangens:
+            tangens(inputValue)
+        case .log:
+            log(inputValue)
         }
         return result!
     }
