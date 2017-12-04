@@ -44,7 +44,7 @@ class ViewController: UIViewController {
     
     @IBAction func resultButtonTapped(_ sender: Any) {
         if let tempResultNumber = resultArea?.text, let resultNumber = Double(tempResultNumber) {
-            //calc.nextNumber(resultNumber) //я сомневаюсь, что это нужно
+            //calc.nextNumber(resultNumber) //я сомневаюсь, что здесь нужно повторение
             if calc.nextOperation == CaclutorOperation.division && resultNumber == 0 {
                 resultArea.text = "Error"
             }
