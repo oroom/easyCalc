@@ -26,12 +26,15 @@ class ViewController: UIViewController {
         guard let button = sender as? UIButton else {
             return
         }
-        let buttonText = button.titleLabel!.text
-        if resultArea.text == "0" {
-            resultArea.text = buttonText
-        }
-        else {
-            resultArea.text! += buttonText!
+        
+        if let buttonText = button.titleLabel?.text, var resultAreaText = resultArea?.text {
+            if resultAreaText == "0" {
+                resultAreaText = buttonText
+            }
+            else {
+                resultAreaText += buttonText
+            }
+            resultArea.text = resultAreaText
         }
     }
     
@@ -40,56 +43,69 @@ class ViewController: UIViewController {
     }
     
     @IBAction func resultButtonTapped(_ sender: Any) {
-        if let resultNumber = Double(resultArea.text!) {
-            calc.nextNumber(resultNumber)
+        if let tempResultNumber = resultArea?.text, let resultNumber = Double(tempResultNumber) {
+            //calc.nextNumber(resultNumber) //я сомневаюсь, что это нужно
             if calc.nextOperation == CaclutorOperation.division && resultNumber == 0 {
                 resultArea.text = "Error"
             }
-            else{
+            else {
                 calc.nextNumber(resultNumber)
-                resultArea.text = String(calc.result!)
+                if let calcResult = calc.result {
+                    resultArea.text = String(calcResult)
+                }
             }
         }
     }
     
     @IBAction func operationWithButtonTapped(_ sender: Any) {
-        let button = sender as! UIButton
-        let inputValueButton = Double(resultArea.text!)
-        calc.inputValue = inputValueButton!
-        switch button.titleLabel!.text!{
-        case "+":
-            calc.nextOperation = .plus
-        case "-":
-            calc.nextOperation = .minus
-        case "×":
-            calc.nextOperation = .multiplie
-        case "÷":
-            calc.nextOperation = .division
-        default:
-            resultArea.text = "Error"
+        guard let button = sender as? UIButton else {
+            return
+        }
+        
+        if let tempInputValueButton = resultArea?.text, let inputValueButton = Double(tempInputValueButton), let buttonText = button.titleLabel?.text {
+            calc.inputValue = inputValueButton
+            switch buttonText {
+            case "+":
+                calc.nextOperation = .plus
+            case "-":
+                calc.nextOperation = .minus
+            case "×":
+                calc.nextOperation = .multiplie
+            case "÷":
+                calc.nextOperation = .division
+            default:
+                resultArea.text = "Error"
+            }
         }
         resultArea.text = "0"
     }
     
     @IBAction func operationWithResultButtonTapped(_ sender: Any) {
-        let button = sender as! UIButton
-        let inputValueButton = Double(resultArea.text!)
-        calc.inputValue = inputValueButton!
-        let resultValueButton = Double(resultArea.text!)
-        switch button.titleLabel!.text!{
-        case "±":
-            calc.nextOperation = .plusMinus
-        case "√":
-            calc.nextOperation = .sqrt
-        case "x²":
-            calc.nextOperation = .doublle
-        default:
-            resultArea.text = "Error"
+        guard let button = sender as? UIButton else {
+            return
         }
-        calc.nextNumber(resultValueButton!)
-        resultArea.text = String(calc.result!)
+        
+        if let tempInputTempValueButton = resultArea?.text, let inputValueButton = Double(tempInputTempValueButton) {
+            calc.inputValue = inputValueButton
+            if let tempResultValueButton = resultArea?.text, let resultValueButton = Double(tempResultValueButton), let buttonText = button.titleLabel?.text {
+                switch buttonText {
+                case "±":
+                    calc.nextOperation = .plusMinus
+                case "√":
+                    calc.nextOperation = .sqrt
+                case "x²":
+                    calc.nextOperation = .doublle
+                default:
+                    resultArea.text = "Error"
+                }
+                calc.nextNumber(resultValueButton)
+                if let calcResult = calc.result {
+                    resultArea.text = String(calcResult)
+                }
+            }
+            
+            
+        }
     }
     
-    
 }
-
