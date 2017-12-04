@@ -95,15 +95,19 @@ class ViewController: UIViewController {
         guard let button = sender as? UIButton else {
             return
         }
-        if let result = resultArea?.text, let text = button.titleLabel?.text {
-            if result.contains(".") {
-                resultArea.text = result
+        if let result = resultArea?.text, let text = button.titleLabel?.text  {
+            if result != "" && result != nil {
+                if result.contains(".") {
+                    resultArea.text = result
+                }
+                else {
+                    resultArea.text = result + text
+                }
             }
             else {
-                resultArea.text = result + text
+                resultArea.text = "0"
             }
         }
     }
-    
 }
 
