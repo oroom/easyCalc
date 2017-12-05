@@ -213,7 +213,7 @@
                                             <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="DotTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0T9-eH-ue3"/>
+                                            <action selector="dotTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="71m-bY-tce"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GkX-7c-ebH">

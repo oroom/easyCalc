@@ -91,7 +91,7 @@ class ViewController: UIViewController {
     }
     
     
-    @IBAction func DotTapped(_ sender: Any) {
+    @IBAction func dotTapped(_ sender: Any) {
         guard let button = sender as? UIButton else {
             return
         }
