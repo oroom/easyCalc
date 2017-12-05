@@ -26,23 +26,48 @@ class Calculator {
     
     func add(_ first: Double, _ second: Double) -> Double {
         result = first + second
-        return result!
+        if let result = result {
+        return result
+        }
+        else {
+            return 0
+        }
     }
     func substract(_ first: Double, _ second: Double) -> Double {
         result = first - second
-        return result!
+        if let result = result {
+            return result
+        }
+        else {
+            return 0
+        }
     }
     func sqrtOf2(_ first: Double) -> Double {
         result = pow(first, (1/2))
-        return result!
+        if let result = result {
+            return result
+        }
+        else {
+            return 0
+        }
     }
     func doublled(_ first: Double) -> Double {
         result = pow(first, 2)
-        return result!
+        if let result = result {
+            return result
+        }
+        else {
+            return 0
+        }
     }
     func multiplies(_ first: Double, _ second: Double) -> Double {
         result = first * second
-        return result!
+        if let result = result {
+            return result
+        }
+        else {
+            return 0
+        }
     }
     func divisions (_ first: Double, _ second: Double) -> Double {
         if second != 0 {
@@ -51,16 +76,31 @@ class Calculator {
         else {
             result = 0
         }
-        return result!
+        if let result = result {
+            return result
+        }
+        else {
+            return 0
+        }
     }
     func plusesMinus (_ first: Double) -> Double {
         if first > 0{
             result = -abs(first)
-            return result!
+            if let result = result {
+                return result
+            }
+            else {
+                return 0
+            }
         }
         else {
             result = abs(first)
-            return result!
+            if let result = result {
+                return result
+            }
+            else {
+                return 0
+            }
         }
     }
     func nextNumber(_ nextNumber: Double) -> Double {
@@ -81,7 +121,12 @@ class Calculator {
             case .plusMinus:
                 plusesMinus(inputValue)
             }
-            return result!
+            if let result = result {
+                return result
+            }
+            else {
+                return 0
+            }
         }
         else {
             return inputValue
