@@ -10,8 +10,11 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
     var calc = Calculator()
+    
     @IBOutlet weak var resultArea: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -61,7 +64,6 @@ class ViewController: UIViewController {
         guard let button = sender as? UIButton else {
             return
         }
-        
         if let tempInputValueButton = resultArea?.text, let inputValueButton = Double(tempInputValueButton), let buttonText = button.titleLabel?.text {
             calc.inputValue = inputValueButton
             switch buttonText {
@@ -84,7 +86,6 @@ class ViewController: UIViewController {
         guard let button = sender as? UIButton else {
             return
         }
-        
         if let tempInputTempValueButton = resultArea?.text, let inputValueButton = Double(tempInputTempValueButton) {
             calc.inputValue = inputValueButton
             if let tempResultValueButton = resultArea?.text, let resultValueButton = Double(tempResultValueButton), let buttonText = button.titleLabel?.text {
@@ -103,9 +104,6 @@ class ViewController: UIViewController {
                     resultArea.text = String(calcResult)
                 }
             }
-            
-            
         }
     }
-    
 }

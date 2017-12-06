@@ -24,86 +24,63 @@ class Calculator {
     var inputValue: Double = 0
     var nextOperation: CaclutorOperation?
     
-    func add(_ first: Double, _ second: Double) -> Double {
-        result = first + second
-        if let result = result {
-        return result
-        }
-        else {
-            return 0
-        }
+    @discardableResult func add(_ first: Double, _ second: Double) -> Double {
+        let output = first + second
+        result = output
+        return output
     }
-    func substract(_ first: Double, _ second: Double) -> Double {
-        result = first - second
-        if let result = result {
-            return result
-        }
-        else {
-            return 0
-        }
+    
+    @discardableResult func substract(_ first: Double, _ second: Double) -> Double {
+        let output = first - second
+        result = output
+        return output
     }
-    func sqrtOf2(_ first: Double) -> Double {
-        result = pow(first, (1/2))
-        if let result = result {
-            return result
-        }
-        else {
-            return 0
-        }
+    
+    @discardableResult func sqrtOf2(_ first: Double) -> Double {
+        let output = pow(first, (1/2))
+        result = output
+        return output
     }
-    func doublled(_ first: Double) -> Double {
-        result = pow(first, 2)
-        if let result = result {
-            return result
-        }
-        else {
-            return 0
-        }
+    
+    @discardableResult func doublled(_ first: Double) -> Double {
+        let output = pow(first, 2)
+        result = output
+        return output
     }
-    func multiplies(_ first: Double, _ second: Double) -> Double {
-        result = first * second
-        if let result = result {
-            return result
-        }
-        else {
-            return 0
-        }
+    
+    @discardableResult func multiplies(_ first: Double, _ second: Double) -> Double {
+        let output = first * second
+        result = output
+        return output
     }
-    func divisions (_ first: Double, _ second: Double) -> Double {
+    
+    @discardableResult func divisions(_ first: Double, _ second: Double) -> Double {
+        var output: Double
         if second != 0 {
-            result = first/second
+            output = first/second
         }
         else {
-            result = 0
+            output = 0
         }
-        if let result = result {
-            return result
+        result = output
+        return output
+    }
+    
+    @discardableResult func plusesMinus(_ first: Double) -> Double {
+        var output: Double
+        if first > 0 {
+            output = -abs(first)
+            result = output
+            return output
         }
         else {
-            return 0
+            output = abs(first)
+            result = output
+            return output
         }
     }
-    func plusesMinus (_ first: Double) -> Double {
-        if first > 0{
-            result = -abs(first)
-            if let result = result {
-                return result
-            }
-            else {
-                return 0
-            }
-        }
-        else {
-            result = abs(first)
-            if let result = result {
-                return result
-            }
-            else {
-                return 0
-            }
-        }
-    }
-    func nextNumber(_ nextNumber: Double) -> Double {
+    
+    @discardableResult func nextNumber(_ nextNumber: Double) -> Double {
         if let nextOperation = nextOperation {
             switch nextOperation {
             case .plus:
