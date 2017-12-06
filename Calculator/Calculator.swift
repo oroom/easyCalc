@@ -23,27 +23,28 @@ class Calculator {
     var inputValue: Double = 0
     var nextOperation: CaclutorOperation?
     
-    func add(_ first: Double ,_ second: Double) -> Double{
+    @discardableResult func add(_ first: Double ,_ second: Double) -> Double {
         result = first + second
         return result!
     }
-    func substract(_ first: Double , _ second: Double) -> Double{
+    @discardableResult func substract(_ first: Double , _ second: Double) -> Double {
         result = first - second
         return result!
     }
-    func sqrtOf2(_ first: Double) -> Double{
+    @discardableResult func sqrtOf2(_ first: Double) -> Double {
         result = pow(first,(1/2))
         return result!
     }
-    func doublled(_ first: Double) -> Double{
+    @discardableResult func doublled(_ first: Double) -> Double {
         result = pow(first,2)
         return result!
     }
-    func multiplies(_ first: Double,_ second: Double) -> Double{
-        result = first * second
-        return result!
+    @discardableResult func multiplies(_ first: Double,_ second: Double) -> Double {
+        let output = first * second
+        result = output
+        return output
     }
-    func divisions (_ first: Double,_ second: Double) -> Double{
+    @discardableResult func divisions (_ first: Double,_ second: Double) -> Double {
         if second != 0 {
             result = first/second
         }
@@ -52,7 +53,7 @@ class Calculator {
         }
         return result!
     }
-    func plusesMinus (_ first: Double) -> Double{
+    @discardableResult func plusesMinus (_ first: Double) -> Double {
         if first > 0{
             result = -abs(first)
             return result!
@@ -62,7 +63,7 @@ class Calculator {
             return result!
         }
     }
-    func nextNumber(_ nextNumber: Double) -> Double{
+    func nextNumber(_ nextNumber: Double) -> Double {
         switch nextOperation!{
         case .plus:
             add(inputValue,nextNumber)
