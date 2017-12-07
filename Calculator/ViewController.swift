@@ -62,6 +62,7 @@ class ViewController: UIViewController {
         guard let button = sender as? UIButton else {
             return
         }
+        
         if let tempInputValueButton = resultArea?.text, let inputValueButton = Double(tempInputValueButton), let buttonText = button.titleLabel?.text {
             calc.inputValue = inputValueButton
             switch buttonText {
