@@ -20,63 +20,57 @@ enum CaclutorOperation {
 
 class Calculator {
     
-    var result: Double?
+    var result: Double = 0
     var inputValue: Double = 0
     var nextOperation: CaclutorOperation?
     
+//    init(result: Double) {
+//        self.result = result
+//    }
+    
     @discardableResult func add(_ first: Double, _ second: Double) -> Double {
-        let output = first + second
-        result = output
-        return output
+        result = first + second
+        return result
     }
     
     @discardableResult func substract(_ first: Double, _ second: Double) -> Double {
-        let output = first - second
-        result = output
-        return output
+        result = first - second
+        return result
     }
     
     @discardableResult func sqrtOf2(_ first: Double) -> Double {
-        let output = pow(first, (1/2))
-        result = output
-        return output
+        result = pow(first, (1/2))
+        return result
     }
     
     @discardableResult func doublled(_ first: Double) -> Double {
-        let output = pow(first, 2)
-        result = output
-        return output
+        result = pow(first, 2)
+        return result
     }
     
     @discardableResult func multiplies(_ first: Double, _ second: Double) -> Double {
-        let output = first * second
-        result = output
-        return output
+        result = first * second
+        return result
     }
     
     @discardableResult func divisions(_ first: Double, _ second: Double) -> Double {
-        var output: Double
         if second != 0 {
-            output = first/second
+            result = first/second
         }
         else {
-            output = 0
+            result = 0
         }
-        result = output
-        return output
+        return result
     }
     
     @discardableResult func plusesMinus(_ first: Double) -> Double {
-        var output: Double
         if first > 0 {
-            output = -abs(first)
-            result = output
-            return output
+            result = -abs(first)
+            return result
         }
         else {
-            output = abs(first)
-            result = output
-            return output
+            result = abs(first)
+            return result
         }
     }
     
@@ -98,12 +92,7 @@ class Calculator {
             case .plusMinus:
                 plusesMinus(inputValue)
             }
-            if let result = result {
-                return result
-            }
-            else {
-                return 0
-            }
+            return result
         }
         else {
             return inputValue
