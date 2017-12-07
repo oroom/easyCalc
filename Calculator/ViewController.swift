@@ -53,9 +53,7 @@ class ViewController: UIViewController {
             }
             else {
                 calc.nextNumber(resultNumber)
-                if let calcResult = calc.result {
-                    resultArea.text = String(calcResult)
-                }
+                resultArea.text = String(calc.result)
             }
         }
     }
@@ -100,9 +98,7 @@ class ViewController: UIViewController {
                     resultArea.text = "Error"
                 }
                 calc.nextNumber(resultValueButton)
-                if let calcResult = calc.result {
-                    resultArea.text = String(calcResult)
-                }
+                resultArea.text = String(calc.result)
             }
         }
     }
