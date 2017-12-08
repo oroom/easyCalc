@@ -25,12 +25,8 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func didgitButtonTapped(_ sender: Any) {
-        guard let button = sender as? UIButton else {
-            return
-        }
-        
-        if let buttonText = button.titleLabel?.text, var resultAreaText = resultArea?.text {
+    @IBAction func didgitButtonTapped(_ sender: UIButton) {
+        if let buttonText = sender.titleLabel?.text, var resultAreaText = resultArea?.text {
             if resultAreaText == "0" {
                 resultAreaText = buttonText
             }
@@ -58,12 +54,8 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBAction func operationWithButtonTapped(_ sender: Any) {
-        guard let button = sender as? UIButton else {
-            return
-        }
-        
-        if let tempInputValueButton = resultArea?.text, let inputValueButton = Double(tempInputValueButton), let buttonText = button.titleLabel?.text {
+    @IBAction func operationWithButtonTapped(_ sender: UIButton) {
+        if let tempInputValueButton = resultArea?.text, let inputValueButton = Double(tempInputValueButton), let buttonText = sender.titleLabel?.text {
             calc.inputValue = inputValueButton
             switch buttonText {
             case "+":
@@ -81,13 +73,10 @@ class ViewController: UIViewController {
         resultArea.text = "0"
     }
     
-    @IBAction func operationWithResultButtonTapped(_ sender: Any) {
-        guard let button = sender as? UIButton else {
-            return
-        }
+    @IBAction func operationWithResultButtonTapped(_ sender: UIButton) {
         if let tempInputTempValueButton = resultArea?.text, let inputValueButton = Double(tempInputTempValueButton) {
             calc.inputValue = inputValueButton
-            if let tempResultValueButton = resultArea?.text, let resultValueButton = Double(tempResultValueButton), let buttonText = button.titleLabel?.text {
+            if let tempResultValueButton = resultArea?.text, let resultValueButton = Double(tempResultValueButton), let buttonText = sender.titleLabel?.text {
                 switch buttonText {
                 case "±":
                     calc.nextOperation = .plusMinus
