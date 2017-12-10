@@ -24,16 +24,13 @@ class Calculator {
     var inputValue: Double = 0
     var nextOperation: CaclutorOperation?
     
-//    init(result: Double) {
-//        self.result = result
-//    }
     
-    @discardableResult func add(_ first: Double, _ second: Double) -> Double {
+    @discardableResult func add(_ first: Double ,_ second: Double) -> Double {
         result = first + second
         return result
     }
     
-    @discardableResult func substract(_ first: Double, _ second: Double) -> Double {
+    @discardableResult func substract(_ first: Double , _ second: Double) -> Double {
         result = first - second
         return result
     }
@@ -52,8 +49,7 @@ class Calculator {
         result = first * second
         return result
     }
-    
-    @discardableResult func divisions(_ first: Double, _ second: Double) -> Double {
+    @discardableResult func divisions (_ first: Double,_ second: Double) -> Double {
         if second != 0 {
             result = first/second
         }
@@ -62,9 +58,8 @@ class Calculator {
         }
         return result
     }
-    
-    @discardableResult func plusesMinus(_ first: Double) -> Double {
-        if first > 0 {
+    @discardableResult func plusesMinus (_ first: Double) -> Double {
+        if first > 0{
             result = -abs(first)
             return result
         }
