@@ -7,6 +7,7 @@
 //
 
 import Foundation
+
 enum CaclutorOperation {
     case plus
     case minus
@@ -19,68 +20,77 @@ enum CaclutorOperation {
 
 class Calculator {
     
-    var result: Double?
+    var result: Double = 0
     var inputValue: Double = 0
     var nextOperation: CaclutorOperation?
     
+    
     @discardableResult func add(_ first: Double ,_ second: Double) -> Double {
         result = first + second
-        return result!
+        return result
     }
+    
     @discardableResult func substract(_ first: Double , _ second: Double) -> Double {
         result = first - second
-        return result!
+        return result
     }
+    
     @discardableResult func sqrtOf2(_ first: Double) -> Double {
-        result = pow(first,(1/2))
-        return result!
+        result = pow(first, (1/2))
+        return result
     }
+    
     @discardableResult func doublled(_ first: Double) -> Double {
-        result = pow(first,2)
-        return result!
+        result = pow(first, 2)
+        return result
     }
-    @discardableResult func multiplies(_ first: Double,_ second: Double) -> Double {
-        let output = first * second
-        result = output
-        return output
+    
+    @discardableResult func multiplies(_ first: Double, _ second: Double) -> Double {
+        result = first * second
+        return result
     }
     @discardableResult func divisions (_ first: Double,_ second: Double) -> Double {
         if second != 0 {
             result = first/second
         }
-        else  {
+        else {
             result = 0
         }
-        return result!
+        return result
     }
     @discardableResult func plusesMinus (_ first: Double) -> Double {
         if first > 0{
             result = -abs(first)
-            return result!
+            return result
         }
         else {
             result = abs(first)
-            return result!
+            return result
         }
-    }
-    func nextNumber(_ nextNumber: Double) -> Double {
-        switch nextOperation!{
-        case .plus:
-            add(inputValue,nextNumber)
-        case .minus:
-            substract(inputValue, nextNumber)
-        case .sqrt:
-            sqrtOf2(inputValue)
-        case .doublle:
-            doublled(inputValue)
-        case .multiplie:
-            multiplies(inputValue, nextNumber)
-        case .division:
-            divisions(inputValue, nextNumber)
-        case .plusMinus:
-            plusesMinus(inputValue)
-        }
-        return result!
     }
     
+    @discardableResult func nextNumber(_ nextNumber: Double) -> Double {
+        if let nextOperation = nextOperation {
+            switch nextOperation {
+            case .plus:
+                add(inputValue, nextNumber)
+            case .minus:
+                substract(inputValue, nextNumber)
+            case .sqrt:
+                sqrtOf2(inputValue)
+            case .doublle:
+                doublled(inputValue)
+            case .multiplie:
+                multiplies(inputValue, nextNumber)
+            case .division:
+                divisions(inputValue, nextNumber)
+            case .plusMinus:
+                plusesMinus(inputValue)
+            }
+            return result
+        }
+        else {
+            return inputValue
+        }
+    }
 }
