@@ -93,12 +93,9 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBAction func dotTapped(_ sender: Any) {
-        guard let button = sender as? UIButton else {
-            return
-        }
-        if let result = resultArea?.text, let text = button.titleLabel?.text  {
-            if result != "" && result != nil {
+    @IBAction func dotTapped(_ sender: UIButton) {
+        if let result = resultArea?.text, let text = sender.titleLabel?.text  {
+            if result != "" {
                 if result.contains(".") {
                     resultArea.text = result
                 }
